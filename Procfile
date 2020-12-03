@@ -1,1 +1,1 @@
-web: gunicorn snipmol:app
+web: gunicorn snipmol.wsgi
