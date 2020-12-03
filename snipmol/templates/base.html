@@ -1,0 +1,96 @@
+{% load static wagtailuserbar %}
+
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en" class="h-100">
+    <head>
+        {% load  static  wagtailsettings_tags %}
+        {% get_settings %}
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/snipmol.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">        
+
+        {# Snipcart #}
+        {% if settings.home.SnipcartSettings.api_key %}
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="{{ settings.home.SnipcartSettings.api_key }}"></script>
+            <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />        {% endif %}
+
+        {% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/snipmol.css' %}">
+        {% endblock %}
+    </head>
+
+    <body style="background-attachment: fixed; background-size: cover; background-image: url('https://st.depositphotos.com/1962533/3585/i/950/depositphotos_35850733-stock-photo-research-concept.jpg');" class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+
+        <div class="container grid-lg">
+            <header class="navbar">
+        
+                <section class="navbar-section">
+                    <a href="/" class="navbar-brand mr-2" style="font-weight: bolder; color: black;">
+                        Products
+                    </a>
+                </section>
+        
+                <!-- Snipcart summary and View cart button -->
+                <section class="navbar-section snipcart-summary">
+                    <div class="input-group input-line">
+                        <a href="" class="btn btn-success snipcart-checkout">
+                            <i class="icon icon-apps"></i>
+                            View cart (<span class="snipcart-total-items">0</span>)
+                        </a>
+                    </div>
+                </section>
+        
+            </header>
+        </div>
+        
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+        
+
+        {# Global javascript #}
+        <!-- <script type="text/javascript" src="{% static 'js/snipcartwagtaildemo.js' %}"></script> -->
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script> -->
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+
+    <nav class="bottomNav" style="text-align: center; background-color: darkslategrey; overflow: hidden; position: fixed; bottom: 0; width: 100%;">
+
+        <!-- Links -->
+        
+          
+            <a style="display: inline-block; color: floralwhite; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;" class="nav-link" href="/welcome-to-matts-molecules">Home</a>
+          
+          
+            <a style="display: inline-block; color: floralwhite; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;" class="nav-link" href="/terms">Terms and Conditions</a>
+        
+          
+            <a style="display: inline-block; color: floralwhite; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;" class="nav-link" href="/contact">Contact</a>
+          
+          
+        
+      
+      </nav>
+</html>

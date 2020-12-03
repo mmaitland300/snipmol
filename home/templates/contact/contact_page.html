@@ -1,0 +1,141 @@
+
+{% load wagtailcore_tags %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </head>
+
+<body class="h-100" style="background-attachment: fixed; background-size: cover; background-image: url('https://st.depositphotos.com/1962533/3585/i/950/depositphotos_35850733-stock-photo-research-concept.jpg');">
+
+    <div class="container grid-lg">
+        <header class="navbar">
+    
+            <section class="navbar-section">
+                <a href="/" class="navbar-brand mr-2" style="font-weight: bolder; color: black;">
+                    Products
+                </a>
+            </section>
+    
+            <!-- Snipcart summary and View cart button -->
+            <section class="navbar-section snipcart-summary">
+                <div class="input-group input-line">
+                    <a href="" class="btn btn-success snipcart-checkout">
+                        <i class="icon icon-apps"></i>
+                        View cart (<span class="snipcart-total-items">0</span>)
+                    </a>
+                </div>
+            </section>
+    
+        </header>
+    </div>
+<br>
+
+
+    
+
+<!-- <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-8 col-lg-6">
+        
+            <form class="col-lg-6 offset-lg-3" action="{% pageurl page %}" method="post">
+                {% csrf_token %}
+                <h1>Contact Me</h1>
+                <p class="description">Hi I hope you enjoy my molecules. Please contact me to tell me how much you enjoy my molecules! Thanks!</p>
+                
+                <div class="form-group">
+                    {{ form.name }}
+                </div>
+                <div class="form-group">
+                    {{ form.email }}
+                </div>
+                <div class="form-group">
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn btn-success btn-customized">Send</button>
+            
+            </form>
+
+        </div>
+    </div>
+</div> -->
+<section class="resume-section p-4 p-lg-5 text-center" id="contact">
+    <div class="my-auto">
+      <h2 class="mb-4">< Contact Information ></h2>
+
+      
+
+      
+
+      <p style="color: black; font-weight: bold;">
+        Hi I hope you enjoy my molecules. Please contact me to tell me how much you enjoy my molecules! Thanks!
+      </p>
+
+      <form
+        class="contact-form d-flex flex-column align-items-center"
+        action="{% pageurl page %}"
+        method="POST"
+      >
+      {% csrf_token %}
+        <div class="form-group w-75">
+          <input
+            type="name"
+            class="form-control"
+            placeholder="Name"
+            name="name"
+            required
+          />
+        </div>
+        <div class="form-group w-75">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Email"
+            name="name"
+            required
+          />
+        </div>
+
+        <div class="form-group w-75">
+          <textarea
+            class="form-control"
+            type="text"
+            placeholder="Message"
+            rows="7"
+            name="name"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-submit btn-info w-75">Submit</button>
+      </form>
+    </div>
+  </section>
+
+
+<br>
+</body>
+<nav class="bottomNav" style="text-align: center; background-color: darkslategrey; overflow: hidden; position: fixed; bottom: 0; width: 100%;">
+
+    <!-- Links -->
+    
+      
+        <a style="display: inline-block; color: floralwhite; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;" class="nav-link" href="/welcome-to-matts-molecules">Home</a>
+      
+      
+        <a style="display: inline-block; color: floralwhite; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;" class="nav-link" href="/terms">Terms and Conditions</a>
+    
+      
+        <a style="display: inline-block; color: floralwhite; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px;" class="nav-link" href="/contact">Contact</a>
+      
+      
+    
+  
+  </nav>
+</html>
